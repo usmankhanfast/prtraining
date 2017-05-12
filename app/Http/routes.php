@@ -21,3 +21,4 @@ Route::resource('books', 'BookController');
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('books/home', array('uses' => 'BookController@home'));

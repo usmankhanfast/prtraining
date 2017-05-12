@@ -26,9 +26,9 @@
              <td>{{ $book->publisher }}</td>
              <td><img src="{{asset('img/'.$book->image.'.png')}}" height="35" width="60"></td>
              <td><a href="{{url('books',$book->id)}}" class="btn btn-primary">Read</a></td> <!-- Not Getting it-->
-             <td><a href="{{url('books/edit',$book->id)}}" class="btn btn-warning">Update</a></td> <!-- Not Getting it-->
+             <td><a href="{{route('books.edit',$book->id)}}" class="btn btn-warning">Update</a></td> <!-- Not Getting it-->
              <td>
-             {!! Form::open(['method' => 'DELETE', 'route'=>['books.destroy', $book->id]]) !!}
+             {!! Form::open(['method' => 'DELETE', 'route'=>['books.destroy', $book->id], 'onsubmit' => 'return confirm("are you sure ?")']) !!}
              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
              {!! Form::close() !!}
              </td>
